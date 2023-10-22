@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
+  def after_sign_in_path_for(resource)
+    user_path(current_user)  # これはユーザーのshowアクションへのパスです
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path  # これはトップページへのパスです
+  end
+
 end
