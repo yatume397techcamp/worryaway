@@ -1,3 +1,5 @@
+# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\db\migrate\20231021221959_devise_create_users.rb
+
 # frozen_string_literal: true
 
 class DeviseCreateUsers < ActiveRecord::Migration[7.0]

@@ -1,3 +1,5 @@
+# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\Gemfile
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
