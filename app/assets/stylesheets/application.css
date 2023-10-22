@@ -81,3 +81,60 @@ html, body {
   margin: 0;  /* マージンを削除してヘッダーを上に詰める */
   padding: 10px 0;  /* 上下のパディングを追加 */
 }
+
+
+.custom-file-input {
+  width: 100px; /* これによりファイル名が隠れます。必要に応じて値を調整してください。 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: '画像選択';
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  visibility: visible;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+
+
+.file-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.file-wrapper img {
+  max-height: 40px;  /* この値は好みに合わせて調整してください */
+  margin-left: 10px; /* 画像とボタンの間に少しの間隔を追加 */
+}
+
+/* 以下のスタイルはファイル名を非表示にするためのものです */
+.custom-file-input::-webkit-directory-upload-button,
+.custom-file-input::-moz-file-picker,
+.custom-file-input::before {
+  content: none;
+}
+
+.file-wrapper span {
+  padding: 40px;
+  background-color: #ddd;
+  display: inline-block;
+  cursor: pointer;
+}
