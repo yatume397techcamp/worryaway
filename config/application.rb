@@ -1,4 +1,5 @@
 # \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\config\application.rb
+
 require_relative "boot"
 
 require "rails/all"
