@@ -1,0 +1,16 @@
+<%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\home\index.html.erb %>
+
+<div class="center-container">
+  <h1>おなやみ解消アプリ</h1>
+  <h2>～脳みそぶっ飛び！～</h2>
+  <div>
+    <%= image_tag "kafun_sukkiri.png", alt: "トップページ画像1" %>
+    <%# <%= image_tag "kafun_sukkiri_woman.png", alt: "トップページ画像1" %>
+  </div>
+  <div>
+    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %>
+    <%# ↓非改行スペーを開ける %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-secondary" %>
+  </div>
+</div>
