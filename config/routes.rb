@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :users, only: [:show]
+  resources :worries, only: [:new, :create]
 
 end
