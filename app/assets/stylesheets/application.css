@@ -1,3 +1,5 @@
+/* \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\assets\stylesheets\application.css */
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +15,27 @@
  *= require_tree .
  *= require_self
  */
+
+ body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* 背景色は必要に応じて変更 */
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100%のviewportの高さ */
+  width: 100vw; /* 100%のviewportの幅 */
+}
+
+.center-container > * {
+  margin-bottom: 20px; /* 子要素の間隔を確保 */
+}
+
+.center-container > *:last-child {
+  margin-bottom: 0; /* 最後の子要素の下の余白を取り除く */
+}
