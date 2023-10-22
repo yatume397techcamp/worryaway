@@ -60,7 +60,7 @@ html, body {
   margin: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .centered-container {
@@ -70,4 +70,14 @@ html, body {
 
 .centered-text {
   text-align: center;
+}
+
+.header {
+  text-align: center; /* タイトルを中央に配置 */
+  padding: 20px;  /* 上下左右のパディングを調整 */
+}
+
+.header h1 {
+  margin: 0;  /* マージンを削除してヘッダーを上に詰める */
+  padding: 10px 0;  /* 上下のパディングを追加 */
 }
