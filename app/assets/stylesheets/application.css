@@ -54,3 +54,20 @@
 .field label {
   margin-right: 1em; /* 1em は大体1文字分のスペースに相当します。 */
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-container {
+  width: 100%;
+  max-width: 500px;  /* あなたの好みに合わせて変更可能 */
+}
+
+.centered-text {
+  text-align: center;
+}
