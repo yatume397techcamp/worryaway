@@ -39,3 +39,18 @@
 .center-container > *:last-child {
   margin-bottom: 0; /* 最後の子要素の下の余白を取り除く */
 }
+
+.center-text {
+  text-align: center;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.field label {
+  margin-right: 1em; /* 1em は大体1文字分のスペースに相当します。 */
+}
