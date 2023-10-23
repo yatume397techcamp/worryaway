@@ -1,17 +1,20 @@
-<%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\worries\new.html.erb %>
-
+<%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\worries\edit.html.erb %>
 
 <div class="centered-container">
-  <%= form_with(model: Worry.new, local: true) do |f| %>
+  <%= form_with(model: @worry, local: true) do |f| %>
     <div class="header">
-      <h1>お悩み投稿</h1>
+      <h1>編集ページ</h1>
     </div>
     
     <div class="field">
       <div class="file-wrapper">
         <%= f.file_field :image, class: "custom-file-input", id: "imageInput" %>
-        <%# <span>画像選択</span> %>
-        <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
+        <%# もし画像が存在すれば表示する %>
+        <% if @worry.image.attached? %>
+          <img id="imagePreview" src="<%= url_for(@worry.image) %>" alt="悩みの画像" style="max-width: 200px;"/>
+        <% else %>
+          <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
+        <% end %>
       </div>
     </div>
 
@@ -22,11 +25,10 @@
 
     <div class="actions">
       <%= link_to "戻る", user_path(current_user), class: "btn btn-secondary" %>
-      <%= f.submit "投稿", class: "btn btn-primary" %>
+      <%= f.submit "更新", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
-
 
 <script>
   document.getElementById('imageInput').addEventListener('change', function(event){

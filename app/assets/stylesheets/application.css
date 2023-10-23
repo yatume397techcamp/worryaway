@@ -59,13 +59,15 @@ html, body {
   height: 100%;
   margin: 0;
   display: flex;
+  flex-direction: column; /* 追加 */
   justify-content: center;
   /* align-items: center; */
 }
 
 .centered-container {
   width: 100%;
-  max-width: 500px;  /* あなたの好みに合わせて変更可能 */
+  max-width: 400px;  /* この値は内容に合わせて変更可能 */
+  margin: 0 auto;    /* 左右のマージンを自動に設定してセンタリング */
 }
 
 .centered-text {
@@ -137,4 +139,20 @@ html, body {
   background-color: #ddd;
   display: inline-block;
   cursor: pointer;
+}
+
+.worries-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 100%; /* 追加 */
+  margin: 0 auto; /* センタリングのための追加 */
+}
+
+.worry-item {
+  box-sizing: border-box; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* 画像とテキストの間のスペース */
 }

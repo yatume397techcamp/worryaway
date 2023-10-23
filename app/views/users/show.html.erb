@@ -1,20 +1,25 @@
 <%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\users\show.html.erb %>
 
-<div class="header">
-  <h1><%= current_user.name %> さんのページ</h1>
-  <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
-  <%= link_to "一時フォルダページ", "#", class: "btn btn-primary" %>
-  <%= link_to "お悩み投稿", new_worry_path, class: "btn btn-primary" %>
-  <%= link_to "データ削除", "#", class: "btn btn-danger" %>
-  <%= link_to "一時フォルダへ移動", "#", class: "btn btn-secondary" %>
-  <%= link_to "編集", "#", class: "btn btn-secondary" %>
-</div>
-
-<div class="worries-list">
-  <% @worries.each do |worry| %>
-    <div class="worry-item">
-      <p><%= worry.text %></p>
-      <!-- 必要なボタンや操作をここに追加 -->
-    </div>
-  <% end %>
-</div>
+<%= form_tag(edit_selected_worries_path, method: :get) do %>
+  <div class="header">
+    <h1><%= current_user.name %> さんのページ</h1>
+    <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+    <%= link_to "一時フォルダページ", "#", class: "btn btn-primary" %>
+    <%= link_to "お悩み投稿", new_worry_path, class: "btn btn-primary" %>
+    <%= link_to "データ削除", "#", class: "btn btn-danger" %>
+    <%= link_to "一時フォルダへ移動", "#", class: "btn btn-secondary" %>
+    <%= submit_tag "編集", class: "btn btn-secondary" %>
+  </div>
+  
+  <div class="worries-list">
+    <% @worries.each do |worry| %>
+      <div class="worry-item">
+        <%= check_box_tag "selected_worries[]", worry.id, false, class: "worry-check" %>
+        <% if worry.image.attached? %>
+          <%= image_tag worry.image, alt: "悩みの画像", width: "200" %>
+        <% end %>
+        <p><%= worry.text %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
