@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'edit_selected_worries', to: 'worries#edit_selected', as: 'edit_selected_worries'
   get 'temp_page', to: 'users#temp', as: 'temp_page'
 
-  delete 'destroy_selected_worries', to: 'worries#destroy_selected', as: 'destroy_selected_worries'
+  post 'move_to_main_worries', to: 'worries#move_to_main', as: 'move_to_main_worries'
+  post 'move_to_temp_worries', to: 'worries#move_to_temp', as: 'move_to_temp_worries'
+
 
 end

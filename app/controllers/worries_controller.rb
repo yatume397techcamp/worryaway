@@ -6,7 +6,13 @@ class WorriesController < ApplicationController
   end
 
   def create
+    if params[:edit]
+      edit_selected
+      return  
+    end
+
     @worry = Worry.new(worry_params)
+    @worry.page = 'トップ'
     if @worry.save
       redirect_to user_path(current_user), notice: 'お悩みが投稿されました。'
     else
@@ -45,9 +51,24 @@ class WorriesController < ApplicationController
     redirect_to user_path(current_user), notice: 'お悩みが削除されました。'
   end
 
-  def destroy_selected
-    Worry.where(id: params[:selected_worries]).destroy_all
-    redirect_to user_path(current_user), notice: '選択されたお悩みが削除されました。'
+  def move_to_temp
+    if params[:commit] == 'データ削除'
+      Worry.where(id: params[:selected_worries]).destroy_all
+      redirect_to user_path(current_user), notice: '選択されたお悩みが削除されました。'
+    elsif params[:edit]
+      edit_selected
+      return
+    else
+      @worries = Worry.where(id: params[:selected_worries])
+      @worries.update_all(page: '一時')
+      redirect_to user_path(current_user), notice: '選択されたお悩みが一時フォルダに移動されました。'
+    end
+  end
+
+  def move_to_main
+    @worries = Worry.where(id: params[:selected_worries])
+    @worries.update_all(page: 'トップ')
+    redirect_to temp_page_path, notice: '選択されたお悩みがメインページに移動されました。'
   end
 
   private

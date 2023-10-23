@@ -1,6 +1,5 @@
 <%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\worries\new.html.erb %>
 
-
 <div class="centered-container">
   <%= form_with(model: Worry.new, local: true) do |f| %>
     <div class="header">
@@ -10,8 +9,11 @@
     <div class="field">
       <div class="file-wrapper">
         <%= f.file_field :image, class: "custom-file-input", id: "imageInput" %>
-        <%# <span>画像選択</span> %>
-        <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
+
+
+
+          <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
+
       </div>
     </div>
 
@@ -27,21 +29,6 @@
   <% end %>
 </div>
 
-
 <script>
-  document.getElementById('imageInput').addEventListener('change', function(event){
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = function() {
-      document.getElementById('imagePreview').style.display = "block";
-      document.getElementById('imagePreview').src = reader.result;
-    }
-
-    if (file) {
-      reader.readAsDataURL(file);
-    } else {
-      document.getElementById('imagePreview').src = "";
-    }
-  });
+<%= javascript_importmap_tags 'image_preview' %>
 </script>
