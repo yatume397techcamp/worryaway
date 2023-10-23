@@ -14,9 +14,6 @@ class WorriesController < ApplicationController
     end
   end
 
-  def edit
-    @worry = Worry.find(params[:id])
-  end
 
   def update
     @worry = Worry.find(params[:id])
@@ -27,9 +24,12 @@ class WorriesController < ApplicationController
     end
   end
 
+  def edit
+    @worry = Worry.find(params[:id])
+  end
+
   def edit_selected
     @selected_worries = Worry.find(params[:selected_worries])
-  
     # 1つの悩みのみを編集するためのコード
     if @selected_worries.length == 1
       redirect_to edit_worry_path(@selected_worries.first)
@@ -37,6 +37,17 @@ class WorriesController < ApplicationController
       # ここにエラーメッセージやアラートを表示するロジックを追加できます
       redirect_to user_path(current_user), alert: '1つの悩みのみを選択してください。'
     end
+  end
+
+  def destroy
+    @worry = Worry.find(params[:id])
+    @worry.destroy
+    redirect_to user_path(current_user), notice: 'お悩みが削除されました。'
+  end
+
+  def destroy_selected
+    Worry.where(id: params[:selected_worries]).destroy_all
+    redirect_to user_path(current_user), notice: '選択されたお悩みが削除されました。'
   end
 
   private
