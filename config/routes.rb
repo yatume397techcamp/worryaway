@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :worries, only: [:new, :create, :edit, :update]
 
   get 'edit_selected_worries', to: 'worries#edit_selected', as: 'edit_selected_worries'
+  get 'temp_page', to: 'users#temp', as: 'temp_page'
+
   delete 'destroy_selected_worries', to: 'worries#destroy_selected', as: 'destroy_selected_worries'
 
 end

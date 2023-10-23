@@ -2,9 +2,21 @@
 
 <%= form_with(url: destroy_selected_worries_path, method: :delete) do %>
   <div class="header">
-    <h1><%= current_user.name %> さんのページ</h1>
+    <h1>
+      <% if action_name == "show" %>
+        <%= current_user.name %> さんのページ
+      <% else %>
+        一時ページ
+      <% end %>
+    </h1>
     <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
-    <%= link_to "一時フォルダページ", "#", class: "btn btn-primary" %>
+
+    <% if action_name == "show" %>
+      <%= link_to "一時フォルダページ", temp_page_path, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "#{current_user.name}さんのページ", user_path(current_user), class: "btn btn-primary" %>
+    <% end %>
+
     <%= link_to "お悩み投稿", new_worry_path, class: "btn btn-primary" %>
     <%= submit_tag 'データ削除', class: "btn btn-danger" %>
     <%= submit_tag "一時フォルダへ移動", class: "btn btn-secondary" %>
