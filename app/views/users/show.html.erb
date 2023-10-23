@@ -1,6 +1,6 @@
 <%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\users\show.html.erb %>
 
-<%= form_with(url: destroy_selected_worries_path, method: :delete) do %>
+<%= form_with(url: (action_name == "show" ? move_to_temp_worries_path : move_to_main_worries_path), method: :post) do %>
   <div class="header">
     <h1>
       <% if action_name == "show" %>
@@ -19,10 +19,16 @@
 
     <%= link_to "お悩み投稿", new_worry_path, class: "btn btn-primary" %>
     <%= submit_tag 'データ削除', class: "btn btn-danger" %>
-    <%= submit_tag "一時フォルダへ移動", class: "btn btn-secondary" %>
+
+    <% if action_name == "show" %>
+      <%= submit_tag "一時フォルダへ移動", class: "btn btn-secondary" %>
+    <% else %>
+      <%= submit_tag "#{current_user.name}さんのページに戻す", class: "btn btn-secondary" %>
+    <% end %>
+
     <%= submit_tag "編集", name: 'edit', value: 'edit', class: "btn btn-secondary" %>
   </div>
-  
+
   <div class="worries-list">
     <% @worries.each do |worry| %>
       <div class="worry-item">
