@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :users, only: [:show]
-  resources :worries, only: [:new, :create]
+  resources :worries, only: [:new, :create, :edit, :update]
+
+  get 'edit_selected_worries', to: 'worries#edit_selected', as: 'edit_selected_worries'
 
 end
