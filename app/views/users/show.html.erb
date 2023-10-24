@@ -49,9 +49,13 @@
       <% @worries.each do |worry| %>
         <div class="worry-item">
           <%= check_box_tag "selected_worries[]", worry.id, false, class: "worry-check" %>
+
           <% if worry.image.attached? %>
-            <%= image_tag worry.image, alt: "悩みの画像", width: "200" %>
+            <%# <%= image_tag worry.image, alt: "悩みの画像", width: "200" %>
+            <%# 透明度を変更して表示%>
+            <%= image_tag worry.image, alt: "悩みの画像", width: "200", style: "opacity: #{worry.transparency_level};" %>
           <% end %>
+
           <p><%= worry.text %></p>
         </div>
       <% end %>
