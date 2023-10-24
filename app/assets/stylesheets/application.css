@@ -1,155 +1,113 @@
 /* \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\assets\stylesheets\application.css */
 
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
  body, html {
-  height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #bdfcf4;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-
-
-.center-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh; /* 100%のviewportの高さ */
-  width: 100vw; /* 100%のviewportの幅 */
 }
 
-.center-container > * {
-  margin-bottom: 20px; /* 子要素の間隔を確保 */
-}
-
-.center-container > *:last-child {
-  margin-bottom: 0; /* 最後の子要素の下の余白を取り除く */
-}
-
-.center-text {
+.home-body {
+  display: flex;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.header {
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  background-color: #d0ff97;
+  border-bottom: 2px solid #8dc8c2;
 }
 
 .field {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.field label {
-  margin-right: 1em; /* 1em は大体1文字分のスペースに相当します。 */
+.worries-list {
+  margin-top: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-left: 50px;
 }
 
-.centered-container {
-  width: 100%;
-  max-width: 400px;  /* この値は内容に合わせて変更可能 */
-  margin: 0 auto;    /* 左右のマージンを自動に設定してセンタリング */
-}
-
-.centered-text {
-  text-align: center;
-}
-
-.header {
-  text-align: center; /* タイトルを中央に配置 */
-  padding: 20px;  /* 上下左右のパディングを調整 */
-}
-
-.header h1 {
-  margin: 0;  /* マージンを削除してヘッダーを上に詰める */
-  padding: 10px 0;  /* 上下のパディングを追加 */
+.worry-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-basis: 200px;
 }
 
 
-.custom-file-input {
-  width: 100px; /* これによりファイル名が隠れます。必要に応じて値を調整してください。 */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
+/* お悩み投稿ページの「ファイルを選択」ボタンを消してに「画像選択」ボタンを表示する */
 .custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
+  visibility: hidden; /* 「ファイルを選択」ボタンを消す */
+}
+.custom-file-input {
+  width: 100px; /* 画像選択ボタンを表示する範囲 */
+  cursor: pointer; /* 指マークを表示 */
 }
 .custom-file-input::before {
-  content: '画像選択';
+  content: '画像選択'; /* 「画像選択」ボタンを作成 */
   display: inline-block;
   background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
   border: 1px solid #999;
   border-radius: 3px;
   padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt;
-  visibility: visible;
-}
-.custom-file-input:hover::before {
-  border-color: black;
 }
 
-
-.file-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.file-wrapper img {
-  max-height: 40px;  /* この値は好みに合わせて調整してください */
-  margin-left: 10px; /* 画像とボタンの間に少しの間隔を追加 */
-}
-
-/* 以下のスタイルはファイル名を非表示にするためのものです */
-.custom-file-input::-webkit-directory-upload-button,
-.custom-file-input::-moz-file-picker,
-.custom-file-input::before {
-  content: none;
-}
-
-.file-wrapper span {
-  padding: 40px;
-  background-color: #ddd;
+/* link_to部分のボタン表示 */
+.btn-standard1 {
+  margin:5px;
   display: inline-block;
+  padding: 15px 20px 7px 20px;       /* 必要に応じて調整 */
+  width: 100px;             /* ボタンの幅 */
+  height: 18px;             /* ボタンの高さ */
+  line-height: 10px;        /* テキストの垂直位置を調整 */
+  font-size: 11px;          /* フォントサイズを設定 */
+  border: none;
+  background-color: #007BFF;
+  color: #FFFFFF;
+  border-radius: 5px;
+  text-decoration: none;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-standard1:hover {
+  background-color: #0056b3;  /* マウスオーバー時の色 */
 }
 
-.worries-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 100%; /* 追加 */
-  margin: 0 auto; /* センタリングのための追加 */
-}
 
-.worry-item {
-  box-sizing: border-box; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px; /* 画像とテキストの間のスペース */
+/* submit_tag部分のボタン表示 */
+.btn-standard2 {
+  margin:5px;
+  display: inline-block;
+  padding: 0px 0px 0px 0px;       /* 必要に応じて調整 */
+  width: 140px;             /* ボタンの幅 */
+  height: 40px;             /* ボタンの高さ */
+  line-height: 10px;        /* テキストの垂直位置を調整 */
+  font-size: 11px;          /* フォントサイズを設定 */
+  border: none;
+  background-color: #007BFF;
+  color: #FFFFFF;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-standard2:hover {
+  background-color: #0056b3;  /* マウスオーバー時の色 */
 }

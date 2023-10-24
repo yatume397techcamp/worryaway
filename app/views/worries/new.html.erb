@@ -1,31 +1,30 @@
 <%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\worries\new.html.erb %>
 
-<div class="centered-container">
+<div class="home-body">
   <%= form_with(model: Worry.new, local: true) do |f| %>
-    <div class="header">
-      <h1>お悩み投稿</h1>
-    </div>
-    
+
+
+    <h1>お悩み投稿</h1>
+
     <div class="field">
-      <div class="file-wrapper">
-        <%= f.file_field :image, class: "custom-file-input", id: "imageInput" %>
+      <%= f.file_field :image, class: "custom-file-input", id: "imageInput" %>
 
 
 
-          <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
+        <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
 
-      </div>
     </div>
 
     <div class="field">
-      <%= f.label :text, "テキスト入力" %>
+      <%= f.label :text, "テキスト入力　" %>
       <%= f.text_area :text %>
     </div>
 
-    <div class="actions">
+    <div class="field">
       <%= link_to "戻る", user_path(current_user), class: "btn btn-secondary" %>
       <%= f.submit "投稿", class: "btn btn-primary" %>
     </div>
+
   <% end %>
 </div>
 

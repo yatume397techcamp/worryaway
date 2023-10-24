@@ -1,20 +1,18 @@
 <%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\worries\edit.html.erb %>
 
-<div class="centered-container">
+<div class="home-body">
   <%= form_with(model: @worry, local: true) do |f| %>
-    <div class="header">
-      <h1>編集ページ</h1>
-    </div>
-    
+    <%= f.hidden_field :from_temp_page, value: @from_temp_page %>  <!-- 隠しフィールド -->
+
+    <h1>編集ページ</h1>
+
     <div class="field">
-      <div class="file-wrapper">
-        <%= f.file_field :image, class: "custom-file-input", id: "imageInput" %>
-        <% if @worry.image.attached? %>
-          <img id="imagePreview" src="<%= url_for(@worry.image) %>" alt="悩みの画像" style="max-width: 200px;"/>
-        <% else %>
-          <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
-        <% end %>
-      </div>
+      <%= f.file_field :image, class: "custom-file-input", id: "imageInput" %>
+      <% if @worry.image.attached? %>
+        <img id="imagePreview" src="<%= url_for(@worry.image) %>" alt="悩みの画像" style="max-width: 200px;"/>
+      <% else %>
+        <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
+      <% end %>
     </div>
 
     <div class="field">
@@ -22,10 +20,11 @@
       <%= f.text_area :text %>
     </div>
 
-    <div class="actions">
-      <%= link_to "戻る", user_path(current_user), class: "btn btn-secondary" %>
+    <div class="field">
+      <%= link_to "戻る", @from_temp_page ? temp_page_path : user_path(current_user), class: "btn btn-secondary" %>
       <%= f.submit "更新", class: "btn btn-primary" %>
     </div>
+
   <% end %>
 </div>
 

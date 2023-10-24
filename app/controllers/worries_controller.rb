@@ -20,11 +20,14 @@ class WorriesController < ApplicationController
     end
   end
 
-
   def update
     @worry = Worry.find(params[:id])
     if @worry.update(worry_params)
-      redirect_to user_path(current_user), notice: 'お悩みが更新されました。'
+      if params[:worry][:from_temp_page] == 'true'
+        redirect_to temp_page_path, notice: 'お悩みが更新されました。'
+      else
+        redirect_to user_path(current_user), notice: 'お悩みが更新されました。'
+      end
     else
       render :edit
     end
@@ -32,6 +35,7 @@ class WorriesController < ApplicationController
 
   def edit
     @worry = Worry.find(params[:id])
+    @from_temp_page = request.referer&.include?(temp_page_path)
   end
 
   def edit_selected
@@ -64,6 +68,21 @@ class WorriesController < ApplicationController
       redirect_to user_path(current_user), notice: '選択されたお悩みが一時フォルダに移動されました。'
     end
   end
+
+  def move_from_temp
+    if params[:commit] == 'データ削除'
+      Worry.where(id: params[:selected_worries]).destroy_all
+      redirect_to temp_page_path, notice: '選択されたお悩みが削除されました。'
+    elsif params[:edit]
+      edit_selected
+      return
+    else
+      @worries = Worry.where(id: params[:selected_worries])
+      @worries.update_all(page: 'トップ')
+      redirect_to temp_page_path, notice: '選択されたお悩みがメインページに移動されました。'
+    end
+  end
+  
 
   def move_to_main
     @worries = Worry.where(id: params[:selected_worries])

@@ -14,6 +14,6 @@ Rails.application.routes.draw do
 
   post 'move_to_main_worries', to: 'worries#move_to_main', as: 'move_to_main_worries'
   post 'move_to_temp_worries', to: 'worries#move_to_temp', as: 'move_to_temp_worries'
-
+  post 'move_from_temp_worries', to: 'worries#move_from_temp'
 
 end
