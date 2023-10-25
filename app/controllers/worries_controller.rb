@@ -10,9 +10,15 @@ class WorriesController < ApplicationController
       edit_selected
       return  
     end
-
+  
     @worry = Worry.new(worry_params)
     @worry.page = 'トップ'
+    
+    # 画像が添付されていない場合、デフォルトの画像を添付する
+    unless @worry.image.attached?
+      @worry.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'no_image.png')), filename: 'no_image.png', content_type: 'image/png')
+    end
+    
     if @worry.save
       redirect_to user_path(current_user), notice: 'お悩みが投稿されました。'
     else

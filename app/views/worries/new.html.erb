@@ -9,9 +9,9 @@
     <div class="field">
       <%= f.file_field :image, class: "custom-file-input", id: "imageInput" %>
 
+      <img id="imagePreview" src="/assets/no_image.png" alt="選択した画像" style="max-width: 200px;"/>
 
 
-        <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
 
     </div>
 
@@ -21,8 +21,8 @@
     </div>
 
     <div class="field">
-      <%= link_to "戻る", user_path(current_user), class: "btn btn-secondary" %>
-      <%= f.submit "投稿", class: "btn btn-primary" %>
+      <%= link_to "戻る", user_path(current_user), class: "btn btn-secondary", class: "btn-standard1" %>
+      <%= f.submit "投稿", class: "btn btn-primary", class: "btn-standard2" %>
     </div>
 
   <% end %>

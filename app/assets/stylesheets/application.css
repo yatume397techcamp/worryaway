@@ -3,7 +3,7 @@
  body, html {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #bdfcf4;
+  background-color: #DBEEF4;
   display: flex;
   align-items: center;
 }
@@ -24,8 +24,8 @@
   padding: 20px;
   position: fixed;
   width: 100%;
-  background-color: #d0ff97;
-  border-bottom: 2px solid #8dc8c2;
+  background-color: #CCFF99;
+  border-bottom: 2px solid #8db36a;
 }
 
 .field {
@@ -64,50 +64,167 @@
   content: '画像選択'; /* 「画像選択」ボタンを作成 */
   display: inline-block;
   background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
-  border: 1px solid #999;
+  border: 1px solid #000000;
   border-radius: 3px;
   padding: 5px 8px;
 }
 
-/* link_to部分のボタン表示 */
+
+/* link_to部分のボタン表示(灰色ボタン) */
 .btn-standard1 {
   margin:5px;
   display: inline-block;
   padding: 15px 20px 7px 20px;       /* 必要に応じて調整 */
-  width: 100px;             /* ボタンの幅 */
+  width: 130px;             /* ボタンの幅 */
   height: 18px;             /* ボタンの高さ */
   line-height: 10px;        /* テキストの垂直位置を調整 */
-  font-size: 11px;          /* フォントサイズを設定 */
-  border: none;
-  background-color: #007BFF;
-  color: #FFFFFF;
+  font-size: 14px;          /* フォントサイズを設定 */
+  border: 1px solid #000000;
+  background-color: #F7F7F7;
+  color: #000000;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.btn-standard1:hover {
-  background-color: #0056b3;  /* マウスオーバー時の色 */
+
+
+
+/* link_to部分のボタン表示2(青色ボタン) */
+.btn-standard3 {
+  margin:5px;
+  display: inline-block;
+  padding: 15px 20px 7px 20px;       /* 必要に応じて調整 */
+  width: 130px;             /* ボタンの幅 */
+  height: 18px;             /* ボタンの高さ */
+  line-height: 10px;        /* テキストの垂直位置を調整 */
+  font-size: 14px;          /* フォントサイズを設定 */
+  border: 1px solid #000000;
+  background-color: #4BACC6;
+  color: #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 
-/* submit_tag部分のボタン表示 */
+
+/* link_to部分のボタン表示3(ピンクボタン) */
+.btn-standard4 {
+  margin:5px;
+  display: inline-block;
+  padding: 15px 20px 7px 20px;       /* 必要に応じて調整 */
+  width: 130px;             /* ボタンの幅 */
+  height: 18px;             /* ボタンの高さ */
+  line-height: 10px;        /* テキストの垂直位置を調整 */
+  font-size: 14px;          /* フォントサイズを設定 */
+  border: 1px solid #000000;
+  background-color: #FCD5B5;
+  color: #000000;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+/* link_to部分のボタン表示4(黄色ボタン) */
+.btn-standard5 {
+  margin:5px;
+  display: inline-block;
+  padding: 15px 20px 7px 20px;       /* 必要に応じて調整 */
+  width: 130px;             /* ボタンの幅 */
+  height: 18px;             /* ボタンの高さ */
+  line-height: 10px;        /* テキストの垂直位置を調整 */
+  font-size: 14px;          /* フォントサイズを設定 */
+  border: 1px solid #000000;
+  background-color: #FFFF00;
+  color: #000000;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+/* submit_tag部分のボタン表示1(灰色ボタン) */
 .btn-standard2 {
+  margin-left:100px;
+  display: inline-block;
+  padding: 0px 0px 0px 0px;       /* 必要に応じて調整 */
+  width: 170px;             /* ボタンの幅 */
+  height: 40px;             /* ボタンの高さ */
+  line-height: 10px;        /* テキストの垂直位置を調整 */
+  font-size: 14px;          /* フォントサイズを設定 */
+  border: 1px solid #000000;
+  background-color: #F7F7F7;
+  color: #000000;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+/* submit_tag部分のボタン表示2(濃い灰色ボタン) */
+.btn-standard6 {
   margin:5px;
   display: inline-block;
   padding: 0px 0px 0px 0px;       /* 必要に応じて調整 */
-  width: 140px;             /* ボタンの幅 */
+  width: 170px;             /* ボタンの幅 */
   height: 40px;             /* ボタンの高さ */
   line-height: 10px;        /* テキストの垂直位置を調整 */
-  font-size: 11px;          /* フォントサイズを設定 */
-  border: none;
-  background-color: #007BFF;
-  color: #FFFFFF;
+  font-size: 14px;          /* フォントサイズを設定 */
+  border: 1px solid #000000;
+  background-color: #BFBFBF;
+  color: #000000;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.btn-standard2:hover {
-  background-color: #0056b3;  /* マウスオーバー時の色 */
+
+
+
+/* submit_tag部分のボタン表示3(オレンジボタン) */
+.btn-standard7 {
+  margin:5px;
+  display: inline-block;
+  padding: 0px 0px 0px 0px;       /* 必要に応じて調整 */
+  width: 170px;             /* ボタンの幅 */
+  height: 40px;             /* ボタンの高さ */
+  line-height: 10px;        /* テキストの垂直位置を調整 */
+  font-size: 14px;          /* フォントサイズを設定 */
+  border: 1px solid #000000;
+  background-color: #FAC090;
+  color: #000000;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
+
+
+
+/* submit_tag部分のボタン表示4(黄緑ボタン) */
+.btn-standard8 {
+  margin:5px;
+  display: inline-block;
+  padding: 0px 0px 0px 0px;       /* 必要に応じて調整 */
+  width: 170px;             /* ボタンの幅 */
+  height: 40px;             /* ボタンの高さ */
+  line-height: 10px;        /* テキストの垂直位置を調整 */
+  font-size: 14px;          /* フォントサイズを設定 */
+  border: 1px solid #000000;
+  background-color: #D7E4BD;
+  color: #000000;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
