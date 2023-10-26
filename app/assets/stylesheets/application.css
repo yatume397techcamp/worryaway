@@ -24,8 +24,8 @@
   padding: 20px;
   position: fixed;
   width: 100%;
-  background-color: #CCFF99;
-  border-bottom: 2px solid #8db36a;
+  background-color: #c9dadf;
+  border-bottom: 2px solid #7f8a8d;
   z-index: 1000;
 }
 
@@ -36,6 +36,7 @@
   margin-bottom: 20px;
 }
 
+
 .worries-list {
   margin-top: 300px;
   display: flex;
@@ -43,7 +44,7 @@
   gap: 50px;
   /* margin-left: 50px; */
   /* margin-right: 50px; */
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .worry-item {
@@ -150,7 +151,7 @@
   line-height: 10px;        /* テキストの垂直位置を調整 */
   font-size: 14px;          /* フォントサイズを設定 */
   border: 1px solid #000000;
-  background-color: #FFFF00;
+  background-color: #fcfc74;
   color: #000000;
   border-radius: 5px;
   text-decoration: none;
@@ -192,8 +193,8 @@
   line-height: 10px;        /* テキストの垂直位置を調整 */
   font-size: 14px;          /* フォントサイズを設定 */
   border: 1px solid #000000;
-  background-color: #BFBFBF;
-  color: #000000;
+  background-color: #484848;
+  color: #ffffff;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
@@ -234,7 +235,7 @@
   line-height: 10px;        /* テキストの垂直位置を調整 */
   font-size: 14px;          /* フォントサイズを設定 */
   border: 1px solid #000000;
-  background-color: #D7E4BD;
+  background-color: #fafa44;
   color: #000000;
   border-radius: 5px;
   text-decoration: none;
