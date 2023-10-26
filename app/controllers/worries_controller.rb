@@ -41,6 +41,12 @@ class WorriesController < ApplicationController
 
   def edit
     @worry = Worry.find(params[:id])
+    
+    unless @worry.user == current_user
+      redirect_to user_path(current_user), alert: '他のユーザーのお悩みを編集することはできません。'
+      return
+    end
+  
     @from_temp_page = request.referer&.include?(temp_page_path)
   end
 
