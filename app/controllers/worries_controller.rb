@@ -14,8 +14,8 @@ class WorriesController < ApplicationController
     @worry = Worry.new(worry_params)
     @worry.page = 'トップ'
     
-    # 画像が添付されていない場合、デフォルトの画像を添付する
-    unless @worry.image.attached?
+    # 画像が添付されていないかつテキストが存在する場合、デフォルトの画像を添付
+    if !@worry.image.attached? && @worry.text.present?
       @worry.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'no_image.png')), filename: 'no_image.png', content_type: 'image/png')
     end
     

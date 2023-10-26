@@ -77,3 +77,4 @@ gem 'devise'
 gem "hotwire-rails", "~> 0.1.3"
 # gem 'rails-ujs'
 gem 'httparty'
+gem 'pry-rails'
