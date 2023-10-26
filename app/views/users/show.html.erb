@@ -6,14 +6,23 @@
   <%= form_with(url: move_to_temp_worries_path, method: :post) do %>
     <div class="header">
       <h1><%= current_user.name %> さんのページ</h1>
-      <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-standard3" %>
-      <%# <br> %>
-      <%= link_to "一時フォルダページ", temp_page_path, class: "btn-standard4" %>
-      <%= link_to "お悩み投稿", new_worry_path, class: "btn-standard5" %>
-      <%# <br> %>
-      <%= submit_tag 'データ削除', class: "btn-standard6" %>
-      <%= submit_tag "一時フォルダへ移動", class: "btn-standard7" %>
-      <%= submit_tag "編集", name: 'edit', value: '編集', class: "btn-standard8" %>
+
+
+      <div class="header-buttons">
+        <div class="header-row">
+          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-standard3" %>
+          <%= link_to "一時フォルダページ", temp_page_path, class: "btn-standard4" %>
+          <%= link_to "お悩み投稿", new_worry_path, class: "btn-standard5" %>
+        </div>
+
+
+        <div class="header-row">
+          <%= submit_tag 'データ削除', class: "btn-standard6" %>
+          <%= submit_tag "一時フォルダへ移動", class: "btn-standard7" %>
+          <%= submit_tag "編集", name: 'edit', value: '編集', class: "btn-standard8" %>
+        </div>
+
+      </div>
     </div>
     <div class="worries-list">
       <% @worries.each do |worry| %>
@@ -34,16 +43,22 @@
   <%= form_with(url: move_from_temp_worries_path, method: :post) do %>
     <div class="header">
       <h1>一時ページ</h1>
-      <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-standard3" %>
-      <%# <%= link_to "#{current_user.name}さんのページ", user_path(current_user), class: "btn-standard" %>
-      <%# <br> %>
-      <%= link_to "ユーザーページ", user_path(current_user), class: "btn-standard4" %>      
-      <%= link_to "お悩み投稿", new_worry_path, class: "btn-standard5" %>
-      <%# <br> %>
-      <%= submit_tag 'データ削除', class: "btn-standard6" %>
-      <%# <%= submit_tag "#{current_user.name}さんのページに戻す", class: "btn-standard" %>
-      <%= submit_tag "ユーザーページに戻す", class: "btn-standard7" %>
-      <%= submit_tag "編集", name: 'edit', value: '編集', class: "btn-standard8" %>
+
+
+      <div class="header-buttons">
+        <div class="header-row">
+          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-standard3" %>
+          <%= link_to "ユーザーページ", user_path(current_user), class: "btn-standard4" %>      
+          <%= link_to "お悩み投稿", new_worry_path, class: "btn-standard5" %>
+        </div>
+
+        <div class="header-row">
+          <%= submit_tag 'データ削除', class: "btn-standard6" %>
+          <%= submit_tag "ユーザーページに戻す", class: "btn-standard7" %>
+          <%= submit_tag "編集", name: 'edit', value: '編集', class: "btn-standard8" %>
+        </div>
+      </div>
+
     </div>
     <div class="worries-list">
       <% @worries.each do |worry| %>

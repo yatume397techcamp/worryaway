@@ -36,7 +36,7 @@
 }
 
 .worries-list {
-  margin-top: 200px;
+  margin-top: 300px;
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
@@ -86,6 +86,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 
@@ -95,7 +96,7 @@
   margin:5px;
   display: inline-block;
   padding: 15px 20px 7px 20px;       /* 必要に応じて調整 */
-  width: 130px;             /* ボタンの幅 */
+  width: 128px;             /* ボタンの幅 */
   height: 18px;             /* ボタンの高さ */
   line-height: 10px;        /* テキストの垂直位置を調整 */
   font-size: 14px;          /* フォントサイズを設定 */
@@ -106,6 +107,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 
@@ -115,7 +117,7 @@
   margin:5px;
   display: inline-block;
   padding: 15px 20px 7px 20px;       /* 必要に応じて調整 */
-  width: 130px;             /* ボタンの幅 */
+  width: 128px;             /* ボタンの幅 */
   height: 18px;             /* ボタンの高さ */
   line-height: 10px;        /* テキストの垂直位置を調整 */
   font-size: 14px;          /* フォントサイズを設定 */
@@ -126,6 +128,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 
@@ -135,7 +138,7 @@
   margin:5px;
   display: inline-block;
   padding: 15px 20px 7px 20px;       /* 必要に応じて調整 */
-  width: 130px;             /* ボタンの幅 */
+  width: 128px;             /* ボタンの幅 */
   height: 18px;             /* ボタンの高さ */
   line-height: 10px;        /* テキストの垂直位置を調整 */
   font-size: 14px;          /* フォントサイズを設定 */
@@ -146,6 +149,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 
@@ -166,6 +170,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 
@@ -186,6 +191,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 
@@ -206,6 +212,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 
@@ -226,5 +233,14 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
+.header-buttons {
+  text-align: right;
+  display: inline-block;
+}
+
+.header-row {
+  margin-bottom: 10px;
+}
