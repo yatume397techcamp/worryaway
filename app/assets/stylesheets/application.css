@@ -26,6 +26,7 @@
   width: 100%;
   background-color: #CCFF99;
   border-bottom: 2px solid #8db36a;
+  z-index: 1000;
 }
 
 .field {
@@ -40,7 +41,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
+  /* margin-right: 50px; */
+  justify-content: center;
 }
 
 .worry-item {
@@ -51,6 +54,10 @@
   flex-basis: 200px;
 }
 
+.worry-item img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 /* お悩み投稿ページの「ファイルを選択」ボタンを消してに「画像選択」ボタンを表示する */
 .custom-file-input::-webkit-file-upload-button {
@@ -244,3 +251,4 @@
 .header-row {
   margin-bottom: 10px;
 }
+

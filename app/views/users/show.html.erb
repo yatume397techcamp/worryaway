@@ -1,83 +1,80 @@
 <%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\users\show.html.erb %>
 
-<% if action_name == "show" %>
+  <% if action_name == "show" %>
 
-  <%# アクションがshowの時（〇〇さんのページ） %>
-  <%= form_with(url: move_to_temp_worries_path, method: :post) do %>
-    <div class="header">
-      <h1><%= current_user.name %> さんのページ</h1>
+    <%# アクションがshowの時（〇〇さんのページ） %>
+    <%= form_with(url: move_to_temp_worries_path, method: :post) do %>
+      <div class="header">
+        <h1><%= current_user.name %> さんのページ</h1>
 
 
-      <div class="header-buttons">
-        <div class="header-row">
-          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-standard3" %>
-          <%= link_to "一時フォルダページ", temp_page_path, class: "btn-standard4" %>
-          <%= link_to "お悩み投稿", new_worry_path, class: "btn-standard5" %>
+        <div class="header-buttons">
+          <div class="header-row">
+            <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-standard3" %>
+            <%= link_to "一時フォルダページ", temp_page_path, class: "btn-standard4" %>
+            <%= link_to "お悩み投稿", new_worry_path, class: "btn-standard5" %>
+          </div>
+
+
+          <div class="header-row">
+            <%= submit_tag 'データ削除', class: "btn-standard6" %>
+            <%= submit_tag "一時フォルダへ移動", class: "btn-standard7" %>
+            <%= submit_tag "編集", name: 'edit', value: '編集', class: "btn-standard8" %>
+          </div>
+
         </div>
+      </div>
+      <div class="worries-list">
+        <% @worries.each do |worry| %>
+          <div class="worry-item">
+            <%= check_box_tag "selected_worries[]", worry.id, false, class: "worry-check" %>
+            <% if worry.image.attached? %>
+              <%= image_tag worry.image, alt: "悩みの画像", width: "200" %>
+            <% end %>
+            <p><%= worry.text %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  <% else %>
+
+    <%# アクションがshow以外の時（一時ページ） %>
+    <%= form_with(url: move_from_temp_worries_path, method: :post) do %>
+      <div class="header">
+        <h1>一時ページ</h1>
 
 
-        <div class="header-row">
-          <%= submit_tag 'データ削除', class: "btn-standard6" %>
-          <%= submit_tag "一時フォルダへ移動", class: "btn-standard7" %>
-          <%= submit_tag "編集", name: 'edit', value: '編集', class: "btn-standard8" %>
+        <div class="header-buttons">
+          <div class="header-row">
+            <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-standard3" %>
+            <%= link_to "ユーザーページ", user_path(current_user), class: "btn-standard4" %>      
+            <%= link_to "お悩み投稿", new_worry_path, class: "btn-standard5" %>
+          </div>
+
+          <div class="header-row">
+            <%= submit_tag 'データ削除', class: "btn-standard6" %>
+            <%= submit_tag "ユーザーページに戻す", class: "btn-standard7" %>
+            <%= submit_tag "編集", name: 'edit', value: '編集', class: "btn-standard8" %>
+          </div>
         </div>
 
       </div>
-    </div>
-    <div class="worries-list">
-      <% @worries.each do |worry| %>
-        <div class="worry-item">
-          <%= check_box_tag "selected_worries[]", worry.id, false, class: "worry-check" %>
-          <% if worry.image.attached? %>
-            <%= image_tag worry.image, alt: "悩みの画像", width: "200" %>
-          <% end %>
-          <p><%= worry.text %></p>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+      <div class="worries-list">
+        <% @worries.each do |worry| %>
+          <div class="worry-item">
+            <%= check_box_tag "selected_worries[]", worry.id, false, class: "worry-check" %>
 
-<% else %>
+            <% if worry.image.attached? %>
+              <%# <%= image_tag worry.image, alt: "悩みの画像", width: "200" %>
+              <%# 透明度を変更して表示%>
+              <%= image_tag worry.image, alt: "悩みの画像", width: "200", style: "opacity: #{worry.transparency_level};" %>
+            <% end %>
 
-  <%# アクションがshow以外の時（一時ページ） %>
-  <%= form_with(url: move_from_temp_worries_path, method: :post) do %>
-    <div class="header">
-      <h1>一時ページ</h1>
-
-
-      <div class="header-buttons">
-        <div class="header-row">
-          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-standard3" %>
-          <%= link_to "ユーザーページ", user_path(current_user), class: "btn-standard4" %>      
-          <%= link_to "お悩み投稿", new_worry_path, class: "btn-standard5" %>
-        </div>
-
-        <div class="header-row">
-          <%= submit_tag 'データ削除', class: "btn-standard6" %>
-          <%= submit_tag "ユーザーページに戻す", class: "btn-standard7" %>
-          <%= submit_tag "編集", name: 'edit', value: '編集', class: "btn-standard8" %>
-        </div>
+            <p><%= worry.text %></p>
+          </div>
+        <% end %>
       </div>
+    <% end %>
 
-    </div>
-    <div class="worries-list">
-      <% @worries.each do |worry| %>
-        <div class="worry-item">
-          <%= check_box_tag "selected_worries[]", worry.id, false, class: "worry-check" %>
-
-          <% if worry.image.attached? %>
-            <%# <%= image_tag worry.image, alt: "悩みの画像", width: "200" %>
-            <%# 透明度を変更して表示%>
-            <%= image_tag worry.image, alt: "悩みの画像", width: "200", style: "opacity: #{worry.transparency_level};" %>
-          <% end %>
-
-          <p><%= worry.text %></p>
-        </div>
-      <% end %>
-    </div>
   <% end %>
-
-<% end %>
-
-
-
