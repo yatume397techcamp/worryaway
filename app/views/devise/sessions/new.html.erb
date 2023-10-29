@@ -1,27 +1,32 @@
 <%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\devise\sessions\new.html.erb %>
 
 <div class="home-body">
-  <h2 class="centered-text">ユーザーログイン</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= flash[:alert] %>
 
-  <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f| %>
+    <h1>ユーザーログイン</h1>
+
+    <%# <div class="field"> %>
+      <%# <%= f.label :name, "名前" %>
+      <%# <%= f.text_field :name, autofocus: true, placeholder: "山田 太郎" %>
+    <%# </div> %>
+
     <div class="field">
-      <%= f.label :メールアドレス　 %><br />
+      <%= f.label :email, "メールアドレス" %> 
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "xxx@xxx.com" %>
     </div>
 
     <div class="field">
-      <%= f.label :パスワード %><br />
+      <%= f.label :password, "パスワード" %> 
       <%= f.password_field :password, autocomplete: "current-password", placeholder: "xxxxxxxx" %>
     </div>
 
-    <%# <% if devise_mapping.rememberable? %>
-      <%# <div class="field"> %>
-        <%# <%= f.check_box :remember_me %>
-        <%# <%= f.label :remember_me %>
-      <%# </div> %>
-    <%# <% end %>
+    <%# <div class="field"> %>
+      <%# <%= f.label :password_confirmation, "パスワード再入力　" %>
+      <%# <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "xxxxxxxx" %>
+    <%# </div> %>
 
-    <div class="actions centered-text">
+    <div class="actions">
       <%= link_to "トップページに戻る", root_path, class: "btn-standard1" %>
       <%= f.submit "ログイン", class: "btn-standard2" %>
     </div>
