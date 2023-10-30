@@ -9,7 +9,8 @@
     <div class="field">
       <%= f.file_field :image, class: "custom-file-input", id: "imageInput" %>
 
-      <img id="imagePreview" src="no_image.png" alt="選択した画像" style="max-width: 200px;"/>
+      <%# <img id="imagePreview" src="/assets/no_image.png" alt="選択した画像" style="max-width: 200px;"/> %>
+      <%= image_tag 'no_image.png', id: 'imagePreview', alt: '選択した画像', style: 'max-width: 200px;' %>
 
 
 
