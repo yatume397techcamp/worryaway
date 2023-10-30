@@ -78,6 +78,7 @@ gem "hotwire-rails", "~> 0.1.3"
 # gem 'rails-ujs'
 gem 'httparty'
 gem 'pry-rails'
+gem "aws-sdk-s3", require: false
 
 group :production do
   gem 'pg'
