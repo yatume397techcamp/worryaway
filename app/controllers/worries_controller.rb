@@ -22,6 +22,7 @@ class WorriesController < ApplicationController
     if @worry.save
       redirect_to user_path(current_user), notice: 'お悩みが投稿されました。'
     else
+      flash[:alert] = '・画像またはテキストのどちらかを入力してください。'
       render :new
     end
   end

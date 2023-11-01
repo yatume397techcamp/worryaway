@@ -1,8 +1,16 @@
 <%# \\wsl.localhost\Ubuntu\home\aivets\projects\worryaway\app\views\worries\new.html.erb %>
 
 <div class="home-body">
-  <%= form_with(model: Worry.new, local: true) do |f| %>
-
+  <%= form_with(model: @worry, local: true) do |f| %>
+    <%= flash[:alert] %>
+    <%# <% if @worry.errors.any? %>
+      <%# <ul> %>
+        <%# <% @worry.errors.full_messages.each do |message| %>
+          <%# <li><%= message %>
+          <%# </li> %>
+        <%# <% end %>
+      <%# </ul> %>
+    <%# <% end %>
 
     <h1>お悩み投稿</h1>
 
