@@ -22,8 +22,8 @@ class WorriesController < ApplicationController
     if @worry.save
       redirect_to user_path(current_user), notice: 'お悩みが投稿されました。'
     else
-      flash[:alert] = '・画像またはテキストのどちらかを入力してください。'
-      render :new
+      # flash[:alert] = '・画像またはテキストのどちらかを入力してください。'
+      render :new, status: :unprocessable_entity #お悩みデータの保存に失敗した場合
     end
   end
 
