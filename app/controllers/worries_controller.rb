@@ -96,6 +96,11 @@ class WorriesController < ApplicationController
     end
   end
   
+  def remove_image
+    @worry = Worry.find(params[:id])
+    @worry.image.purge  # 画像を削除
+    redirect_to edit_worry_path(@worry), notice: '画像が削除されました。'
+  end
 
   def move_to_main
     @worries = Worry.where(id: params[:selected_worries])
