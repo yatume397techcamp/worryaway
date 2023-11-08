@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   post 'move_to_temp_worries', to: 'worries#move_to_temp', as: 'move_to_temp_worries'
   post 'move_from_temp_worries', to: 'worries#move_from_temp'
 
+  resources :worries do
+    member do
+      delete :remove_image
+    end
+  end
+
 end
