@@ -10,11 +10,18 @@
       <%= f.file_field :image, class: "custom-file-input", id: "imageInput" %>
       <% if @worry.image.attached? %>
         <img id="imagePreview" src="<%= url_for(@worry.image) %>" alt="悩みの画像" style="max-width: 200px;"/>
-        <%= link_to "画像削除", remove_image_worry_path(@worry), method: :delete, data: { confirm: '画像を削除しますか？' }, class: "btn-standard1" %>
       <% else %>
         <img id="imagePreview" src="#" alt="選択した画像" style="max-width: 200px; display: none;"/>
       <% end %>
     </div>
+
+<div class="field" style="display: flex; align-items: center; justify-content: flex-start;">
+  <div style="margin-right: 10px;"> <!-- ボタンを右にスペースを作成 -->
+    <% if @worry.image.attached? %>
+      <%= link_to "画像削除", remove_image_worry_path(@worry), method: :delete, data: { confirm: '画像を削除しますか？' }, class: "btn-standard1" %>
+    <% end %>
+  </div>
+</div>
 
     <div class="field">
       <%= f.label :text, "テキスト入力" %>
