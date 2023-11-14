@@ -152,8 +152,17 @@ ja:
             email:
               blank: "：メールアドレスを入力してください"
               taken: "：このメールアドレスは既に使用されています"
+              invalid: 'は不正な値です'
             password:
               blank: "：パスワードを入力してください"
               too_short: "：パスワードは%{count}文字以上で入力してください"
+              too_long: '：は128文字以内で入力してください'
             name:
               blank: "：名前を入力してください"
+            password_confirmation:
+              confirmation: '：確認用パスワードとパスワードが一致しません'
+      messages:
+        confirmation: '一致しません'
+        invalid: 'は不正な値です'
+        too_long: 'は128文字以内で入力してください'
+
